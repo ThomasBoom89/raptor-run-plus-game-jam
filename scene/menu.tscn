@@ -50,11 +50,19 @@ script = ExtResource("2_t2x4y")
 [node name="StartButton" type="Button" parent="UI/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+focus_neighbor_bottom = NodePath("../ExitButton")
+focus_next = NodePath("../ExitButton")
+focus_previous = NodePath("../ExitButton")
+theme_override_colors/font_focus_color = Color(0.32549, 0.701961, 0.352941, 1)
 theme_override_font_sizes/font_size = 64
 text = "Start Game"
 
 [node name="ExitButton" type="Button" parent="UI/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+focus_neighbor_top = NodePath("../StartButton")
+focus_next = NodePath("../StartButton")
+focus_previous = NodePath("../StartButton")
+theme_override_colors/font_focus_color = Color(0.32549, 0.701961, 0.352941, 1)
 theme_override_font_sizes/font_size = 64
 text = "Exit"

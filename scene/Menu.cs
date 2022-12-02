@@ -14,6 +14,7 @@ public partial class Menu : VBoxContainer
         _exitButton = GetNode<Button>("ExitButton");
         _startButton.Pressed += OnStartButtonPressed;
         _exitButton.Pressed += OnExitButtonPressed;
+        _startButton.GrabFocus();
     }
 
     private void OnExitButtonPressed()
