@@ -31,7 +31,7 @@ public partial class Projectile : AnimatableBody2D
             Object collider = kinematicCollision2D.GetCollider();
             if (collider.Call("is_in_group", "enemy").AsBool())
             {
-                collider.Call("Die");
+                collider.Call("Hit");
             }
 
             QueueFree();

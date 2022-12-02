@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbhjx0tfe2m4y"]
+
+[ext_resource type="Texture2D" uid="uid://cguaoi7chxgo4" path="res://assets/sprites/Platform/platform.png" id="1_s1tr4"]
+[ext_resource type="PackedScene" uid="uid://ddn5sbit1t6dy" path="res://scene/enemies/plant_enemy.tscn" id="2_ctspu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gqthg"]
+size = Vector2(381, 42)
+
+[node name="Platform" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_s1tr4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.5, -18)
+shape = SubResource("RectangleShape2D_gqthg")
+
+[node name="Enemy" parent="." instance=ExtResource("2_ctspu")]
+position = Vector2(183, -112)
+scale = Vector2(0.6, 0.6)

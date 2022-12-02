@@ -1,15 +1,17 @@
 using Godot;
 
-namespace RaptorRunPlus.scene;
+namespace RaptorRunPlus.scene.enemies;
 
 public partial class Enemy : CharacterBody2D
 {
-    private float _movementSpeed = 1.0f;
+    [Export] private float _movementSpeed = 1.0f;
 
+    [Export] private int _value = 80;
+
+    [Export] private int _hitTillDie = 1;
+
+    private int _hitsLeft;
     private bool _active = false;
-
-    private int _value = 80;
-
     private AnimatedSprite2D _animatedSprite2D;
     private AudioStreamPlayer2D _deathSound;
     private Player _player;
@@ -21,6 +23,7 @@ public partial class Enemy : CharacterBody2D
     public override void _Ready()
     {
         AddToGroup("enemy");
+        _hitsLeft = _hitTillDie;
         _animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
         _player = GetNode<Player>("/root/World/Player");
         _game = GetNode<Game>("/root/World");
@@ -61,7 +64,19 @@ public partial class Enemy : CharacterBody2D
         _animatedSprite2D.Play("walk");
     }
 
-    public void Die()
+    public void Hit()
+    {
+        if (_hitsLeft <= 1)
+        {
+            Die();
+        }
+        else
+        {
+            _hitsLeft--;
+        }
+    }
+
+    private void Die()
     {
         _game._AddScore(_value);
         _active = false;

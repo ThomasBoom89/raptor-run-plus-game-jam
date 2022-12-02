@@ -17,7 +17,8 @@ public partial class Game : Node2D
     private PackedScene _platformSingleCollectable;
     private PackedScene _platformRowCollectable;
     private PackedScene _platformRainbowCollectable;
-    private PackedScene _platformEnemy;
+    private PackedScene _platformDinoEnemy;
+    private PackedScene _platformPlantEnemy;
     private PackedScene _platformCollectableAmmo;
 
     private DateTime _lastSpawn;
@@ -45,7 +46,8 @@ public partial class Game : Node2D
         _platformSingleCollectable = GD.Load<PackedScene>("res://scene/platform_collectible_single.tscn");
         _platformRowCollectable = GD.Load<PackedScene>("res://scene/platform_collectible_row.tscn");
         _platformRainbowCollectable = GD.Load<PackedScene>("res://scene/platform_collectible_rainbow.tscn");
-        _platformEnemy = GD.Load<PackedScene>("res://scene/platform_enemy.tscn");
+        _platformDinoEnemy = GD.Load<PackedScene>("res://scene/platforms/platform_dino_enemy.tscn");
+        _platformPlantEnemy = GD.Load<PackedScene>("res://scene/platforms/platform_plant_enemy.tscn");
         _platformCollectableAmmo = GD.Load<PackedScene>("res://scene/platform_collectible_ammo.tscn");
         _movingEnvironment = GetNode<Node2D>("Environment/Moving");
         _player = GetNode<Player>("Player");
@@ -108,7 +110,7 @@ public partial class Game : Node2D
     private void SpawnPlatform()
     {
         StaticBody2D platform;
-        int rand = _random.Next(0, 6);
+        int rand = _random.Next(0, 7);
         switch (rand)
         {
             case 0:
@@ -125,10 +127,13 @@ public partial class Game : Node2D
                 platform = _platformRainbowCollectable.Instantiate<StaticBody2D>();
                 break;
             case 4:
-                platform = _platformEnemy.Instantiate<StaticBody2D>();
+                platform = _platformDinoEnemy.Instantiate<StaticBody2D>();
                 break;
             case 5:
                 platform = _platformCollectableAmmo.Instantiate<StaticBody2D>();
+                break;
+            case 6:
+                platform = _platformPlantEnemy.Instantiate<StaticBody2D>();
                 break;
         }
 

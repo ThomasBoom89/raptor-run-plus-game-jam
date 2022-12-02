@@ -1,0 +1,164 @@
+[gd_scene load_steps=35 format=3 uid="uid://ddn5sbit1t6dy"]
+
+[ext_resource type="Script" path="res://scene/enemies/Enemy.cs" id="1_t23lj"]
+[ext_resource type="Texture2D" uid="uid://c1lfw75uyna03" path="res://assets/sprites/Plant Enemy/plant_enemy_death.png" id="2_kawpy"]
+[ext_resource type="Texture2D" uid="uid://dkf5jxsakls1a" path="res://assets/sprites/Plant Enemy/plant_enemy_idle.png" id="3_6xfcy"]
+[ext_resource type="Texture2D" uid="uid://vehwk1lbety2" path="res://assets/sprites/Plant Enemy/plant_enemy_walk.png" id="4_bpwex"]
+[ext_resource type="AudioStream" uid="uid://bntq1336h2gc3" path="res://assets/sounds/enemy_death.wav" id="5_nsuc3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gowgh"]
+atlas = ExtResource("2_kawpy")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e57fq"]
+atlas = ExtResource("2_kawpy")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkyh5"]
+atlas = ExtResource("2_kawpy")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lasch"]
+atlas = ExtResource("2_kawpy")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgb2i"]
+atlas = ExtResource("2_kawpy")
+region = Rect2(1024, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q200b"]
+atlas = ExtResource("2_kawpy")
+region = Rect2(1280, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfd02"]
+atlas = ExtResource("2_kawpy")
+region = Rect2(1536, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65whu"]
+atlas = ExtResource("2_kawpy")
+region = Rect2(1792, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbv68"]
+atlas = ExtResource("2_kawpy")
+region = Rect2(2048, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44h0s"]
+atlas = ExtResource("2_kawpy")
+region = Rect2(2304, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pckl"]
+atlas = ExtResource("2_kawpy")
+region = Rect2(2560, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1fu3"]
+atlas = ExtResource("2_kawpy")
+region = Rect2(2816, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_adap1"]
+atlas = ExtResource("3_6xfcy")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_02ewq"]
+atlas = ExtResource("3_6xfcy")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kblrl"]
+atlas = ExtResource("3_6xfcy")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wjhd"]
+atlas = ExtResource("3_6xfcy")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nn4dh"]
+atlas = ExtResource("3_6xfcy")
+region = Rect2(1024, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2oxl"]
+atlas = ExtResource("3_6xfcy")
+region = Rect2(1280, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymqq7"]
+atlas = ExtResource("4_bpwex")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8est"]
+atlas = ExtResource("4_bpwex")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfv5r"]
+atlas = ExtResource("4_bpwex")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxfdr"]
+atlas = ExtResource("4_bpwex")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wiv6o"]
+atlas = ExtResource("4_bpwex")
+region = Rect2(1024, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mv4vw"]
+atlas = ExtResource("4_bpwex")
+region = Rect2(1280, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1ev6"]
+atlas = ExtResource("4_bpwex")
+region = Rect2(1536, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2nxht"]
+atlas = ExtResource("4_bpwex")
+region = Rect2(1792, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e17xf"]
+atlas = ExtResource("4_bpwex")
+region = Rect2(2048, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_10hi5"]
+animations = [{
+"frames": [SubResource("AtlasTexture_gowgh"), SubResource("AtlasTexture_e57fq"), SubResource("AtlasTexture_kkyh5"), SubResource("AtlasTexture_lasch"), SubResource("AtlasTexture_wgb2i"), SubResource("AtlasTexture_q200b"), SubResource("AtlasTexture_vfd02"), SubResource("AtlasTexture_65whu"), SubResource("AtlasTexture_qbv68"), SubResource("AtlasTexture_44h0s"), SubResource("AtlasTexture_8pckl"), SubResource("AtlasTexture_u1fu3")],
+"loop": false,
+"name": &"death",
+"speed": 12.0
+}, {
+"frames": [SubResource("AtlasTexture_adap1"), SubResource("AtlasTexture_02ewq"), SubResource("AtlasTexture_kblrl"), SubResource("AtlasTexture_1wjhd"), SubResource("AtlasTexture_nn4dh"), SubResource("AtlasTexture_x2oxl")],
+"loop": true,
+"name": &"idle",
+"speed": 12.0
+}, {
+"frames": [SubResource("AtlasTexture_ymqq7"), SubResource("AtlasTexture_s8est"), SubResource("AtlasTexture_yfv5r"), SubResource("AtlasTexture_bxfdr"), SubResource("AtlasTexture_wiv6o"), SubResource("AtlasTexture_mv4vw"), SubResource("AtlasTexture_m1ev6"), SubResource("AtlasTexture_2nxht"), SubResource("AtlasTexture_e17xf")],
+"loop": true,
+"name": &"walk",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sxj6r"]
+size = Vector2(257, 225)
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_t23lj")
+_movementSpeed = 0.8
+_value = 120
+_hitTillDie = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+frames = SubResource("SpriteFrames_10hi5")
+animation = &"walk"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8.5, 10.5)
+shape = SubResource("RectangleShape2D_sxj6r")
+
+[node name="Hitbox" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox"]
+position = Vector2(8, 10)
+polygon = PackedVector2Array(-118, 108, 108, 108, 87, 8, 60, -77, 38, -90, -5, -73, -28, -52, -79, -50, -99, -19, -103, 27)
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_nsuc3")
+volume_db = -20.594

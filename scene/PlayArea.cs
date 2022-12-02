@@ -1,4 +1,5 @@
 using Godot;
+using RaptorRunPlus.scene.enemies;
 
 namespace RaptorRunPlus.scene;
 
