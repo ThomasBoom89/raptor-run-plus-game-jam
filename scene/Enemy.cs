@@ -8,10 +8,13 @@ public partial class Enemy : CharacterBody2D
 
     private bool _active = false;
 
+    private int _value = 80;
+
     private AnimatedSprite2D _animatedSprite2D;
     private AudioStreamPlayer2D _deathSound;
     private Player _player;
     private Area2D _hitbox;
+    private Game _game;
 
     public float Gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 
@@ -20,6 +23,7 @@ public partial class Enemy : CharacterBody2D
         AddToGroup("enemy");
         _animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
         _player = GetNode<Player>("/root/World/Player");
+        _game = GetNode<Game>("/root/World");
         _hitbox = GetNode<Area2D>("%Hitbox");
         _deathSound = GetNode<AudioStreamPlayer2D>("DeathSound");
         _hitbox.BodyEntered += OnBodyEntered;
@@ -59,6 +63,7 @@ public partial class Enemy : CharacterBody2D
 
     public void Die()
     {
+        _game._AddScore(_value);
         _active = false;
         _animatedSprite2D.Play("death");
         _animatedSprite2D.AnimationFinished += () => { QueueFree(); };
