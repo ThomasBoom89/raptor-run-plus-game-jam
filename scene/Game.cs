@@ -9,7 +9,10 @@ public partial class Game : Node2D
     [Signal]
     public delegate void GameOverEventHandler();
 
-    private float _worldSpeed = 300.0f;
+    public float WorldSpeed;
+    private float _worldSpeedStep = 2.0f;
+    public const float MinWorldSpeed = 300.0f;
+    public const float MaxWorldSpeed = 1000.0f;
 
     private Node2D _movingEnvironment;
 
@@ -38,8 +41,13 @@ public partial class Game : Node2D
     private Label _gameOverLabel;
     private Label _ammoLabel;
 
+    private ulong _startTime;
+    private ulong _timeTillSpeedUpdate = 500;
+
     public override void _Ready()
     {
+        WorldSpeed = MinWorldSpeed;
+        _startTime = Time.GetTicksMsec();
         _platform = GD.Load<PackedScene>("res://scene/platforms/platform.tscn");
         _platformSingleCollectable = GD.Load<PackedScene>("res://scene/platforms/platform_collectible_single.tscn");
         _platformRowCollectable = GD.Load<PackedScene>("res://scene/platforms/platform_collectible_row.tscn");
@@ -80,6 +88,12 @@ public partial class Game : Node2D
             return;
         }
 
+        if (WorldSpeed < MaxWorldSpeed && _startTime + _timeTillSpeedUpdate < Time.GetTicksMsec())
+        {
+            WorldSpeed += _worldSpeedStep;
+            _startTime = Time.GetTicksMsec();
+        }
+
         if (_resetCollectiblePitchDateTime.Add(new TimeSpan(0, 0, 0, 0, 2000)) < DateTime.Now)
         {
             _collectiblePitch = 1.0f;
@@ -96,7 +110,7 @@ public partial class Game : Node2D
             return;
         }
 
-        float newX = _movingEnvironment.Position.x - _worldSpeed * (float)delta;
+        float newX = _movingEnvironment.Position.x - WorldSpeed * (float)delta;
         _movingEnvironment.Position = new Vector2(newX, _movingEnvironment.Position.y);
     }
 
@@ -136,7 +150,8 @@ public partial class Game : Node2D
         }
         else
         {
-            float x = _lastPlatformPosition.x + _random.Next(450, 600);
+            float x = _lastPlatformPosition.x +
+                      _random.Next(400 + (int)(WorldSpeed * 0.30), 520 + (int)(WorldSpeed * 0.40));
             float y = Math.Clamp(_lastPlatformPosition.y + _random.Next(-250, 250), -100, 580);
             platform.Position = new Vector2(x, y);
         }
