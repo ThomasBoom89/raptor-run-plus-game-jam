@@ -9,7 +9,7 @@ public partial class Player : CharacterBody2D
     public delegate void PlayerDiedEventHandler();
 
     public const float Speed = 300.0f;
-    public const float JumpVelocity = -600.0f;
+    public const float JumpVelocity = -620.0f;
 
     // Get the gravity from the project settings to be synced with RigidBody nodes.
     public float Gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
