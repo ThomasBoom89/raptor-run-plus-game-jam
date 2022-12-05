@@ -57,8 +57,6 @@ public partial class Player : CharacterBody2D
             return;
         }
 
-        _camera2d.Position = Position;
-
         if (!IsOnFloor())
         {
             velocity.y += Gravity * (float)delta;
