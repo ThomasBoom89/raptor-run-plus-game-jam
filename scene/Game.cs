@@ -21,8 +21,6 @@ public partial class Game : Node2D
     private PackedScene _platformPlantEnemy;
     private PackedScene _platformCollectableAmmo;
 
-    private DateTime _lastSpawn;
-
     private Vector2 _lastPlatformPosition = Vector2.Zero;
 
     private Random _random;
@@ -42,13 +40,13 @@ public partial class Game : Node2D
 
     public override void _Ready()
     {
-        _platform = GD.Load<PackedScene>("res://scene/platform.tscn");
-        _platformSingleCollectable = GD.Load<PackedScene>("res://scene/platform_collectible_single.tscn");
-        _platformRowCollectable = GD.Load<PackedScene>("res://scene/platform_collectible_row.tscn");
-        _platformRainbowCollectable = GD.Load<PackedScene>("res://scene/platform_collectible_rainbow.tscn");
+        _platform = GD.Load<PackedScene>("res://scene/platforms/platform.tscn");
+        _platformSingleCollectable = GD.Load<PackedScene>("res://scene/platforms/platform_collectible_single.tscn");
+        _platformRowCollectable = GD.Load<PackedScene>("res://scene/platforms/platform_collectible_row.tscn");
+        _platformRainbowCollectable = GD.Load<PackedScene>("res://scene/platforms/platform_collectible_rainbow.tscn");
         _platformDinoEnemy = GD.Load<PackedScene>("res://scene/platforms/platform_dino_enemy.tscn");
         _platformPlantEnemy = GD.Load<PackedScene>("res://scene/platforms/platform_plant_enemy.tscn");
-        _platformCollectableAmmo = GD.Load<PackedScene>("res://scene/platform_collectible_ammo.tscn");
+        _platformCollectableAmmo = GD.Load<PackedScene>("res://scene/platforms/platform_collectible_ammo.tscn");
         _movingEnvironment = GetNode<Node2D>("Environment/Moving");
         _player = GetNode<Player>("Player");
         _collectAudioStreamPlayer2D = GetNode<AudioStreamPlayer2D>("Sounds/CollectSound");
@@ -58,7 +56,9 @@ public partial class Game : Node2D
         _random = new Random();
         _player.PlayerDied += OnPlayerDied;
         SpawnPlatform();
-        _lastSpawn = DateTime.Now;
+        SpawnPlatform();
+        SpawnPlatform();
+        SpawnPlatform();
     }
 
     private void OnPlayerDied()
@@ -85,13 +85,6 @@ public partial class Game : Node2D
             _collectiblePitch = 1.0f;
         }
 
-        int millis = _random.Next(1000, 2000);
-        if (_lastSpawn.Add(new TimeSpan(0, 0, 0, 0, millis)) < DateTime.Now)
-        {
-            SpawnPlatform();
-            _lastSpawn = DateTime.Now;
-        }
-
         _scoreLabel.Text = "Score: " + _score;
         _ammoLabel.Text = "Ammo: " + _player.GetAmmo();
     }
@@ -107,7 +100,7 @@ public partial class Game : Node2D
         _movingEnvironment.Position = new Vector2(newX, _movingEnvironment.Position.y);
     }
 
-    private void SpawnPlatform()
+    public void SpawnPlatform()
     {
         StaticBody2D platform;
         int rand = _random.Next(0, 7);
@@ -139,12 +132,12 @@ public partial class Game : Node2D
 
         if (_lastPlatformPosition == Vector2.Zero)
         {
-            platform.Position = new Vector2(400, 0);
+            platform.Position = new Vector2(500, 0);
         }
         else
         {
-            float x = _lastPlatformPosition.x + _random.Next(450, 550);
-            float y = Math.Clamp(_lastPlatformPosition.y + _random.Next(-150, 150), 200, 1000);
+            float x = _lastPlatformPosition.x + _random.Next(450, 600);
+            float y = Math.Clamp(_lastPlatformPosition.y + _random.Next(-250, 250), -100, 580);
             platform.Position = new Vector2(x, y);
         }
 

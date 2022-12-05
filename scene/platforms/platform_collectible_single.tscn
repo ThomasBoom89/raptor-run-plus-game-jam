@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://co38up4vh0kj3"]
+[gd_scene load_steps=5 format=3 uid="uid://cmu6w8ipeur2i"]
 
 [ext_resource type="Texture2D" uid="uid://cguaoi7chxgo4" path="res://assets/sprites/Platform/platform.png" id="1_3d1xy"]
+[ext_resource type="Script" path="res://scene/platforms/Platform.cs" id="1_qrpjf"]
 [ext_resource type="PackedScene" uid="uid://cj7yip0ffnjwc" path="res://scene/collectible.tscn" id="2_quu2r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gqthg"]
 size = Vector2(381, 42)
 
 [node name="Platform" type="StaticBody2D"]
+script = ExtResource("1_qrpjf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_3d1xy")

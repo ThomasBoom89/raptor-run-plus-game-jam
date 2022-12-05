@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpl3wm86y105u"]
+[gd_scene load_steps=5 format=3 uid="uid://ba5wcw3any4p6"]
 
+[ext_resource type="Script" path="res://scene/platforms/Platform.cs" id="1_psc16"]
 [ext_resource type="Texture2D" uid="uid://cguaoi7chxgo4" path="res://assets/sprites/Platform/platform.png" id="1_rp8yx"]
 [ext_resource type="PackedScene" uid="uid://ni1q15jocx7j" path="res://scene/ammo_collectible.tscn" id="2_w53o7"]
 
@@ -7,6 +8,7 @@
 size = Vector2(381, 42)
 
 [node name="Platform" type="StaticBody2D"]
+script = ExtResource("1_psc16")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_rp8yx")

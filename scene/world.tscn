@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://buum7bva7038s"]
+[gd_scene load_steps=11 format=3 uid="uid://h2p8moqh1d00"]
 
 [ext_resource type="Script" path="res://scene/Game.cs" id="1_4oxyj"]
 [ext_resource type="Texture2D" uid="uid://b7txcag4lmx88" path="res://assets/sprites/Background/background_static.png" id="1_wk6v2"]
-[ext_resource type="PackedScene" uid="uid://cbmwq8eiqg1yg" path="res://scene/platform.tscn" id="2_v7nr3"]
+[ext_resource type="Script" path="res://scene/CameraFix.cs" id="2_2kmcc"]
+[ext_resource type="PackedScene" uid="uid://bj6lurm102ltl" path="res://scene/platforms/platform.tscn" id="2_v7nr3"]
 [ext_resource type="PackedScene" uid="uid://dg421o0xmci6" path="res://scene/player.tscn" id="3_8fj3q"]
 [ext_resource type="Script" path="res://scene/PlayArea.cs" id="3_j20rd"]
 [ext_resource type="Script" path="res://scene/Ground.cs" id="4_0umes"]
@@ -18,10 +19,15 @@ size = Vector2(3000, 20)
 script = ExtResource("1_4oxyj")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+z_index = -1
+position = Vector2(0, -3)
 current = true
-zoom = Vector2(1.5, 1.5)
+zoom = Vector2(0.4, 0.4)
+limit_bottom = 640
+script = ExtResource("2_2kmcc")
 
-[node name="Background" type="Sprite2D" parent="Camera2D"]
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
 texture = ExtResource("1_wk6v2")
 
 [node name="Environment" type="Node2D" parent="."]
@@ -69,6 +75,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Score" type="Label" parent="HUD/UI"]
+layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -83,6 +90,7 @@ theme_override_font_sizes/font_size = 30
 text = "Score: 1000"
 
 [node name="Ammo" type="Label" parent="HUD/UI"]
+layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -98,6 +106,7 @@ text = "Ammo: 0"
 
 [node name="GameOver" type="Label" parent="HUD/UI"]
 visible = false
+layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
