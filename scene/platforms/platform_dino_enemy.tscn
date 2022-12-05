@@ -20,3 +20,4 @@ shape = SubResource("RectangleShape2D_gqthg")
 [node name="Enemy" parent="." instance=ExtResource("2_kfixx")]
 position = Vector2(175, -88)
 scale = Vector2(0.4, 0.4)
+_movementSpeed = 0.9

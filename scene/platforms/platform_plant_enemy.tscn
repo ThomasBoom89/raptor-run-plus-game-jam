@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=5 format=3 uid="uid://dlofwgku3gw5r"]
 
 [ext_resource type="Script" path="res://scene/platforms/Platform.cs" id="1_lo6gx"]
 [ext_resource type="Texture2D" uid="uid://cguaoi7chxgo4" path="res://assets/sprites/Platform/platform.png" id="1_s1tr4"]
@@ -20,3 +20,4 @@ shape = SubResource("RectangleShape2D_gqthg")
 [node name="Enemy" parent="." instance=ExtResource("2_ctspu")]
 position = Vector2(183, -112)
 scale = Vector2(0.6, 0.6)
+_movementSpeed = 0.6
