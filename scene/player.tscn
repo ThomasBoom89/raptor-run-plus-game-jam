@@ -259,7 +259,7 @@ animation = &"run"
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4, 19)
+position = Vector2(3, 20)
 shape = SubResource("RectangleShape2D_bxf74")
 
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
