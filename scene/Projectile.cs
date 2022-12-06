@@ -6,16 +6,16 @@ namespace RaptorRunPlus.scene;
 
 public partial class Projectile : AnimatableBody2D
 {
-    private DateTime _deathTime;
+    private ulong _deathTime;
 
     public override void _Ready()
     {
-        _deathTime = DateTime.Now.Add(new TimeSpan(0, 0, 0, 0, 2000));
+        _deathTime = Time.GetTicksMsec() + 2000;
     }
 
     public override void _Process(double delta)
     {
-        if (_deathTime < DateTime.Now)
+        if (_deathTime < Time.GetTicksMsec())
         {
             QueueFree();
         }

@@ -35,7 +35,7 @@ public partial class Game : Node2D
 
     private float _collectiblePitch = 1.0f;
 
-    private DateTime _resetCollectiblePitchDateTime;
+    private ulong _resetCollectiblePitchTime;
 
     private Label _scoreLabel;
     private Label _gameOverLabel;
@@ -94,7 +94,7 @@ public partial class Game : Node2D
             _startTime = Time.GetTicksMsec();
         }
 
-        if (_resetCollectiblePitchDateTime.Add(new TimeSpan(0, 0, 0, 0, 2000)) < DateTime.Now)
+        if ((_resetCollectiblePitchTime + 2000) < Time.GetTicksMsec())
         {
             _collectiblePitch = 1.0f;
         }
@@ -166,7 +166,7 @@ public partial class Game : Node2D
         _score += value;
         _collectAudioStreamPlayer2D.PitchScale = _collectiblePitch;
         _collectAudioStreamPlayer2D.Play();
-        _resetCollectiblePitchDateTime = DateTime.Now;
+        _resetCollectiblePitchTime = Time.GetTicksMsec();
         _collectiblePitch += 0.1f;
     }
 }
