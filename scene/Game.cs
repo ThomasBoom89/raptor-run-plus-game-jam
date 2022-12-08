@@ -10,9 +10,9 @@ public partial class Game : Node2D
     public delegate void GameOverEventHandler();
 
     public float WorldSpeed;
-    private float _worldSpeedStep = 2.0f;
+    private float _worldSpeedStep = 1.0f;
     public const float MinWorldSpeed = 300.0f;
-    public const float MaxWorldSpeed = 1000.0f;
+    public const float MaxWorldSpeed = 900.0f;
 
     private Node2D _movingEnvironment;
 
@@ -24,6 +24,9 @@ public partial class Game : Node2D
     private PackedScene _platformPlantEnemy;
     private PackedScene _platformCollectableAmmo;
 
+    private PackedScene _pauseMenu;
+    private Node2D _pauseMenuInstance;
+
     private Vector2 _lastPlatformPosition = Vector2.Zero;
 
     private Random _random;
@@ -32,6 +35,7 @@ public partial class Game : Node2D
 
     private AudioStreamPlayer2D _collectAudioStreamPlayer2D;
     private Player _player;
+    private Camera2D _camera2D;
 
     private float _collectiblePitch = 1.0f;
 
@@ -42,7 +46,7 @@ public partial class Game : Node2D
     private Label _ammoLabel;
 
     private ulong _startTime;
-    private ulong _timeTillSpeedUpdate = 500;
+    private ulong _timeTillSpeedUpdate = 100;
 
     public override void _Ready()
     {
@@ -55,8 +59,10 @@ public partial class Game : Node2D
         _platformDinoEnemy = GD.Load<PackedScene>("res://scene/platforms/platform_dino_enemy.tscn");
         _platformPlantEnemy = GD.Load<PackedScene>("res://scene/platforms/platform_plant_enemy.tscn");
         _platformCollectableAmmo = GD.Load<PackedScene>("res://scene/platforms/platform_collectible_ammo.tscn");
+        _pauseMenu = GD.Load<PackedScene>("res://scene/ui/pause/menu.tscn");
         _movingEnvironment = GetNode<Node2D>("Environment/Moving");
         _player = GetNode<Player>("Player");
+        _camera2D = GetNode<Camera2D>("/root/World/Camera2D");
         _collectAudioStreamPlayer2D = GetNode<AudioStreamPlayer2D>("Sounds/CollectSound");
         _scoreLabel = GetNode<Label>("HUD/UI/Score");
         _ammoLabel = GetNode<Label>("HUD/UI/Ammo");
@@ -88,7 +94,7 @@ public partial class Game : Node2D
             return;
         }
 
-        if (WorldSpeed < MaxWorldSpeed && _startTime + _timeTillSpeedUpdate < Time.GetTicksMsec())
+        if (WorldSpeed <= MaxWorldSpeed && _startTime + _timeTillSpeedUpdate < Time.GetTicksMsec())
         {
             WorldSpeed += _worldSpeedStep;
             _startTime = Time.GetTicksMsec();
@@ -101,6 +107,17 @@ public partial class Game : Node2D
 
         _scoreLabel.Text = "Score: " + _score;
         _ammoLabel.Text = "Ammo: " + _player.GetAmmo();
+    }
+
+    public override void _Input(InputEvent @event)
+    {
+        if (@event.IsActionPressed("pause"))
+        {
+            _pauseMenuInstance = _pauseMenu.Instantiate<Node2D>();
+
+            AddChild(_pauseMenuInstance);
+            GetTree().Paused = true;
+        }
     }
 
     public override void _PhysicsProcess(double delta)
@@ -168,5 +185,12 @@ public partial class Game : Node2D
         _collectAudioStreamPlayer2D.Play();
         _resetCollectiblePitchTime = Time.GetTicksMsec();
         _collectiblePitch += 0.1f;
+    }
+
+    public void ResumeGame()
+    {
+        RemoveChild(_pauseMenuInstance);
+        _camera2D.Current = true;
+        GetTree().Paused = false;
     }
 }

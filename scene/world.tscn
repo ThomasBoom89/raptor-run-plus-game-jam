@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://h2p8moqh1d00"]
+[gd_scene load_steps=11 format=3 uid="uid://cjuwm2ap126il"]
 
 [ext_resource type="Script" path="res://scene/Game.cs" id="1_4oxyj"]
 [ext_resource type="Texture2D" uid="uid://b7txcag4lmx88" path="res://assets/sprites/Background/background_static.png" id="1_wk6v2"]
@@ -25,10 +25,6 @@ zoom = Vector2(1.5, 1.5)
 limit_bottom = 920
 script = ExtResource("2_2kmcc")
 
-[node name="Background" type="Sprite2D" parent="."]
-z_index = -1
-texture = ExtResource("1_wk6v2")
-
 [node name="Environment" type="Node2D" parent="."]
 
 [node name="Static" type="Node2D" parent="Environment"]
@@ -38,6 +34,7 @@ collision_mask = 4
 script = ExtResource("3_j20rd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Static/PlayArea"]
+position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_7f4fm")
 
 [node name="Ground" type="Area2D" parent="Environment/Static"]
@@ -52,16 +49,26 @@ shape = SubResource("RectangleShape2D_kyrx5")
 [node name="Moving" type="Node2D" parent="Environment"]
 
 [node name="Platform" parent="Environment/Moving" instance=ExtResource("2_v7nr3")]
+position = Vector2(152, 93)
 
 [node name="Player" parent="." instance=ExtResource("3_8fj3q")]
-position = Vector2(-174, -91)
+position = Vector2(-1.52588e-05, -1.00001)
 scale = Vector2(0.4, 0.4)
 
 [node name="Sounds" type="Node2D" parent="."]
+visible = false
 
 [node name="CollectSound" type="AudioStreamPlayer2D" parent="Sounds"]
 stream = ExtResource("6_frqn5")
 volume_db = -20.891
+
+[node name="BackgroundCanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" type="Sprite2D" parent="BackgroundCanvasLayer"]
+position = Vector2(960, 540)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_wk6v2")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 layer = 99
