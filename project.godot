@@ -29,6 +29,10 @@ window/stretch/mode="viewport"
 
 project/assembly_name="Raptor Run Plus"
 
+[gui]
+
+theme/default_font_antialiasing=2
+
 [input]
 
 ui_accept={
