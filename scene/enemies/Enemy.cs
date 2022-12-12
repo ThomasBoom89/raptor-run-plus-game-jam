@@ -12,6 +12,7 @@ public partial class Enemy : CharacterBody2D
 
     private int _hitsLeft;
     private bool _active = false;
+    private bool _isDead = false;
     private AnimatedSprite2D _animatedSprite2D;
     private AudioStreamPlayer2D _deathSound;
     private Player _player;
@@ -35,6 +36,11 @@ public partial class Enemy : CharacterBody2D
 
     private void OnPlayerDied()
     {
+        if (_isDead)
+        {
+            return;
+        }
+
         _animatedSprite2D.Play("idle");
         _active = false;
     }
@@ -78,8 +84,14 @@ public partial class Enemy : CharacterBody2D
 
     private void Die()
     {
-        _game._AddScore(_value);
+        if (_isDead)
+        {
+            return;
+        }
+
         _active = false;
+        _isDead = true;
+        _game._AddScore(_value);
         _animatedSprite2D.Play("death");
         _animatedSprite2D.AnimationFinished += () => { QueueFree(); };
     }

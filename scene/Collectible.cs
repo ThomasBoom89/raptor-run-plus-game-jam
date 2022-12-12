@@ -10,6 +10,8 @@ public partial class Collectible : Area2D
 
     private AnimatedSprite2D _animatedSprite2D;
 
+    private bool _isDead = false;
+
     public override void _Ready()
     {
         _animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
@@ -19,8 +21,9 @@ public partial class Collectible : Area2D
 
     private void OnBodyEntered(Node2D body)
     {
-        if (body.IsInGroup("player"))
+        if (body.IsInGroup("player") && !_isDead)
         {
+            _isDead = true;
             _game._AddScore(_value);
             _animatedSprite2D.Play("collected");
             _animatedSprite2D.AnimationFinished += () => { QueueFree(); };

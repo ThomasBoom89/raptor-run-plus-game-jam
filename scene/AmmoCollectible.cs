@@ -10,6 +10,8 @@ public partial class AmmoCollectible : Area2D
 
     private Player _player;
 
+    private bool _isDead = false;
+
     public override void _Ready()
     {
         _player = GetNode<Player>("/root/World/Player");
@@ -20,8 +22,9 @@ public partial class AmmoCollectible : Area2D
 
     private void OnBodyEntered(Node2D body)
     {
-        if (body.IsInGroup("player"))
+        if (body.IsInGroup("player") && !_isDead)
         {
+            _isDead = true;
             _player.AddAmmo();
             _pickupSound.Play();
             _animatedSprite2D.Play("collected");
