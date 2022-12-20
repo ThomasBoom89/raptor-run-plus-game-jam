@@ -26,6 +26,7 @@ offset_right = 960.0
 offset_bottom = 540.0
 
 [node name="MarginContainer" type="MarginContainer" parent="Camera2D/Control"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -37,36 +38,26 @@ theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/Control/MarginContainer"]
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 1900.0
-offset_bottom = 1060.0
+layout_mode = 2
 
 [node name="Pause" type="Label" parent="Camera2D/Control/MarginContainer/VBoxContainer"]
-offset_right = 1880.0
-offset_bottom = 178.0
+layout_mode = 2
 theme_override_font_sizes/font_size = 128
 text = "Game is paused!"
 horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="Camera2D/Control/MarginContainer/VBoxContainer"]
-offset_top = 182.0
-offset_right = 1880.0
-offset_bottom = 1040.0
+layout_mode = 2
 size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/Control/MarginContainer/VBoxContainer/MarginContainer"]
-offset_right = 1880.0
-offset_bottom = 858.0
+layout_mode = 2
 alignment = 1
 script = ExtResource("1_3kwgi")
 
 [node name="ResumeButton" type="Button" parent="Camera2D/Control/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(434, 0)
-offset_left = 723.0
-offset_top = 281.0
-offset_right = 1157.0
-offset_bottom = 377.0
+layout_mode = 2
 size_flags_horizontal = 4
 focus_neighbor_top = NodePath("../QuitButton")
 focus_neighbor_bottom = NodePath("../BackToMenuButton")
@@ -76,10 +67,7 @@ theme_override_font_sizes/font_size = 64
 text = "Resume"
 
 [node name="BackToMenuButton" type="Button" parent="Camera2D/Control/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
-offset_left = 723.0
-offset_top = 381.0
-offset_right = 1157.0
-offset_bottom = 477.0
+layout_mode = 2
 size_flags_horizontal = 4
 focus_neighbor_top = NodePath("../ResumeButton")
 focus_neighbor_bottom = NodePath("../QuitButton")
@@ -90,10 +78,7 @@ text = "Back to menu"
 
 [node name="QuitButton" type="Button" parent="Camera2D/Control/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(434, 0)
-offset_left = 723.0
-offset_top = 481.0
-offset_right = 1157.0
-offset_bottom = 577.0
+layout_mode = 2
 size_flags_horizontal = 4
 focus_neighbor_top = NodePath("../BackToMenuButton")
 focus_neighbor_bottom = NodePath("../ResumeButton")
