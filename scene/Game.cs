@@ -1,6 +1,7 @@
 using System;
 using Godot;
 using Microsoft.VisualBasic;
+using RaptorRunPlus.scene.service;
 
 namespace RaptorRunPlus.scene;
 
@@ -48,6 +49,13 @@ public partial class Game : Node2D
     private ulong _startTime;
     private ulong _timeTillSpeedUpdate = 100;
 
+    private GameState _gameState;
+
+    public Game()
+    {
+        _gameState = DIContainer.GetFactory().GetGameState();
+    }
+
     public override void _Ready()
     {
         WorldSpeed = MinWorldSpeed;
@@ -78,22 +86,12 @@ public partial class Game : Node2D
     private void OnPlayerDied()
     {
         EmitSignal(nameof(GameOver));
-        _gameOverLabel.Text = $"Game Over. You scored {_score} points! \n\r Press \"Jump\" to restart.";
-        _gameOverLabel.Visible = true;
+        _gameState.SetScore(_score);
+        GetTree().ChangeSceneToFile("res://scene/ui/gameover/game_over.tscn");
     }
 
     public override void _Process(double delta)
     {
-        if (!_player.Active)
-        {
-            if (Input.IsActionJustPressed("jump"))
-            {
-                GetTree().ReloadCurrentScene();
-            }
-
-            return;
-        }
-
         if (WorldSpeed <= MaxWorldSpeed && _startTime + _timeTillSpeedUpdate < Time.GetTicksMsec())
         {
             WorldSpeed += _worldSpeedStep;
