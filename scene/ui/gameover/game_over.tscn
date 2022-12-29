@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dkb5vc1iqf24"]
+[gd_scene load_steps=7 format=3 uid="uid://bwmrj5d505q5p"]
 
 [ext_resource type="Script" path="res://scene/camera/CurrentFix.cs" id="1_ffhiw"]
 [ext_resource type="Script" path="res://scene/ui/gameover/GameOver.cs" id="1_nafxg"]
 [ext_resource type="Texture2D" uid="uid://b7txcag4lmx88" path="res://assets/sprites/Background/background_static.png" id="2_6g01c"]
 [ext_resource type="PackedScene" uid="uid://bl2ix1y1dtaxy" path="res://scene/ui/gameover/highscore_board.tscn" id="3_g017y"]
-[ext_resource type="StyleBox" uid="uid://iijyan7mtiun" path="res://scene/ui/gameover/panel_container.tres" id="5_ui4hj"]
+[ext_resource type="Texture2D" uid="uid://bdsmj4cyxcfbq" path="res://assets/sprites/side_board/buttons/01.png" id="5_2d85a"]
+[ext_resource type="Texture2D" uid="uid://bq14wxgd41s2r" path="res://assets/sprites/side_board/submit/01.png" id="6_cd4t7"]
 
 [node name="GameOver" type="Node2D"]
 script = ExtResource("1_nafxg")
@@ -28,7 +29,6 @@ offset_right = 960.0
 offset_bottom = 540.0
 
 [node name="MarginContainer" type="MarginContainer" parent="Camera2D/Control"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -40,10 +40,14 @@ theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/Control/MarginContainer"]
-layout_mode = 2
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 1900.0
+offset_bottom = 1060.0
 
 [node name="GameOver" type="Label" parent="Camera2D/Control/MarginContainer/VBoxContainer"]
-layout_mode = 2
+offset_right = 1880.0
+offset_bottom = 178.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.690196)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 5
@@ -55,100 +59,145 @@ text = "Game Over!"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Camera2D/Control/MarginContainer/VBoxContainer"]
-layout_mode = 2
+offset_top = 182.0
+offset_right = 1880.0
+offset_bottom = 1022.0
 
 [node name="MarginContainer" type="MarginContainer" parent="Camera2D/Control/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
+offset_right = 926.0
+offset_bottom = 840.0
 theme_override_constants/margin_left = 73
 theme_override_constants/margin_right = 73
 
 [node name="HighscoreBoard" parent="Camera2D/Control/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer" instance=ExtResource("3_g017y")]
 unique_name_in_owner = true
-layout_mode = 2
+offset_left = 73.0
+offset_right = 853.0
+offset_bottom = 840.0
 
 [node name="MarginContainer2" type="MarginContainer" parent="Camera2D/Control/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
+custom_minimum_size = Vector2(780, 0)
+offset_left = 1015.0
+offset_right = 1795.0
+offset_bottom = 840.0
 size_flags_horizontal = 6
 size_flags_vertical = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/Control/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2"]
-layout_mode = 2
+offset_right = 780.0
+offset_bottom = 840.0
 
-[node name="PanelContainer" type="PanelContainer" parent="Camera2D/Control/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer"]
-layout_mode = 2
-theme_override_styles/panel = ExtResource("5_ui4hj")
+[node name="MarginContainer" type="MarginContainer" parent="Camera2D/Control/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(400, 116)
+offset_right = 780.0
+offset_bottom = 116.0
 
-[node name="YourScore" type="Label" parent="Camera2D/Control/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer/PanelContainer"]
+[node name="TextureRect" type="TextureRect" parent="Camera2D/Control/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer"]
+offset_right = 780.0
+offset_bottom = 116.0
+texture = ExtResource("5_2d85a")
+
+[node name="YourScore" type="Label" parent="Camera2D/Control/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer"]
 unique_name_in_owner = true
-layout_mode = 2
-theme_override_colors/font_color = Color(0.231373, 0.231373, 0.231373, 1)
+offset_top = 22.0
+offset_right = 780.0
+offset_bottom = 94.0
+theme_override_colors/font_color = Color(0.164706, 0.164706, 0.164706, 1)
 theme_override_font_sizes/font_size = 50
 text = "Your score: 290"
 horizontal_alignment = 1
 
-[node name="PanelContainer2" type="PanelContainer" parent="Camera2D/Control/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="Camera2D/Control/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer"]
 custom_minimum_size = Vector2(0, 600)
-layout_mode = 2
-theme_override_styles/panel = ExtResource("5_ui4hj")
+offset_top = 120.0
+offset_right = 780.0
+offset_bottom = 720.0
 
-[node name="NotGoodEnough" type="Label" parent="Camera2D/Control/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer/PanelContainer2"]
+[node name="TextureRect" type="TextureRect" parent="Camera2D/Control/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer2"]
+offset_right = 780.0
+offset_bottom = 600.0
+texture = ExtResource("6_cd4t7")
+
+[node name="MarginContainer" type="MarginContainer" parent="Camera2D/Control/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer2"]
+offset_left = 87.0
+offset_right = 693.0
+offset_bottom = 600.0
+size_flags_horizontal = 4
+
+[node name="NotGoodEnough" type="Label" parent="Camera2D/Control/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer2/MarginContainer"]
 unique_name_in_owner = true
 visible = false
-layout_mode = 2
-theme_override_colors/font_color = Color(0.231373, 0.231373, 0.231373, 1)
+offset_top = 228.0
+offset_right = 606.0
+offset_bottom = 372.0
+theme_override_colors/font_color = Color(0.164706, 0.164706, 0.164706, 1)
 theme_override_font_sizes/font_size = 50
 text = "Not good enough
 Try again!"
 horizontal_alignment = 1
 
-[node name="SubmitHighscore" type="VBoxContainer" parent="Camera2D/Control/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer/PanelContainer2"]
+[node name="SubmitHighscore" type="VBoxContainer" parent="Camera2D/Control/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer2/MarginContainer"]
 unique_name_in_owner = true
-layout_mode = 2
+offset_right = 606.0
+offset_bottom = 600.0
 theme_override_constants/separation = 32
 
-[node name="Label" type="Label" parent="Camera2D/Control/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer/PanelContainer2/SubmitHighscore"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.231373, 0.231373, 0.231373, 1)
+[node name="Label" type="Label" parent="Camera2D/Control/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer2/MarginContainer/SubmitHighscore"]
+offset_right = 606.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(0.164706, 0.164706, 0.164706, 1)
 theme_override_font_sizes/font_size = 50
 text = "Great!"
 horizontal_alignment = 1
 
-[node name="Rank" type="Label" parent="Camera2D/Control/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer/PanelContainer2/SubmitHighscore"]
+[node name="Rank" type="Label" parent="Camera2D/Control/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer2/MarginContainer/SubmitHighscore"]
 unique_name_in_owner = true
-layout_mode = 2
-theme_override_colors/font_color = Color(0.231373, 0.231373, 0.231373, 1)
+offset_top = 104.0
+offset_right = 606.0
+offset_bottom = 176.0
+theme_override_colors/font_color = Color(0.164706, 0.164706, 0.164706, 1)
 theme_override_font_sizes/font_size = 50
 text = "You placed {rank}!"
 horizontal_alignment = 1
 
-[node name="SubmitContainer" type="VBoxContainer" parent="Camera2D/Control/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer/PanelContainer2/SubmitHighscore"]
+[node name="SubmitContainer" type="VBoxContainer" parent="Camera2D/Control/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer2/MarginContainer/SubmitHighscore"]
 unique_name_in_owner = true
-layout_mode = 2
+offset_top = 208.0
+offset_right = 606.0
+offset_bottom = 425.0
 theme_override_constants/separation = 18
 
-[node name="Label2" type="Label" parent="Camera2D/Control/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer/PanelContainer2/SubmitHighscore/SubmitContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.231373, 0.231373, 0.231373, 1)
+[node name="Label2" type="Label" parent="Camera2D/Control/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer2/MarginContainer/SubmitHighscore/SubmitContainer"]
+offset_right = 606.0
+offset_bottom = 144.0
+theme_override_colors/font_color = Color(0.164706, 0.164706, 0.164706, 1)
 theme_override_font_sizes/font_size = 50
 text = "Submit your name to the
 highscore board!"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Camera2D/Control/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer/PanelContainer2/SubmitHighscore/SubmitContainer"]
-layout_mode = 2
+[node name="HBoxContainer" type="HBoxContainer" parent="Camera2D/Control/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer2/MarginContainer/SubmitHighscore/SubmitContainer"]
+offset_left = 1.0
+offset_top = 162.0
+offset_right = 605.0
+offset_bottom = 217.0
+size_flags_horizontal = 4
 
-[node name="Name" type="LineEdit" parent="Camera2D/Control/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer/PanelContainer2/SubmitHighscore/SubmitContainer/HBoxContainer"]
+[node name="Name" type="LineEdit" parent="Camera2D/Control/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer2/MarginContainer/SubmitHighscore/SubmitContainer/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 0)
-layout_mode = 2
+offset_right = 400.0
+offset_bottom = 55.0
 theme_override_font_sizes/font_size = 30
 placeholder_text = "Your name - max 10 letters"
 max_length = 10
 
-[node name="Submit" type="Button" parent="Camera2D/Control/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer/PanelContainer2/SubmitHighscore/SubmitContainer/HBoxContainer"]
+[node name="Submit" type="Button" parent="Camera2D/Control/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer2/MarginContainer/SubmitHighscore/SubmitContainer/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
+offset_left = 404.0
+offset_right = 604.0
+offset_bottom = 55.0
 focus_neighbor_left = NodePath("../Quit")
 focus_neighbor_right = NodePath("../Back")
 focus_next = NodePath("../Back")
@@ -156,17 +205,30 @@ focus_previous = NodePath("../Quit")
 theme_override_font_sizes/font_size = 34
 text = "Submit"
 
-[node name="PanelContainer3" type="PanelContainer" parent="Camera2D/Control/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer"]
-layout_mode = 2
-theme_override_styles/panel = ExtResource("5_ui4hj")
+[node name="PanelContainer3" type="MarginContainer" parent="Camera2D/Control/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 116)
+offset_top = 724.0
+offset_right = 780.0
+offset_bottom = 840.0
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/Control/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer/PanelContainer3"]
+offset_right = 780.0
+offset_bottom = 116.0
+texture = ExtResource("5_2d85a")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Camera2D/Control/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer/PanelContainer3"]
-layout_mode = 2
+offset_left = 86.0
+offset_top = 30.0
+offset_right = 694.0
+offset_bottom = 85.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="Retry" type="Button" parent="Camera2D/Control/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer/PanelContainer3/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
+offset_right = 200.0
+offset_bottom = 55.0
 focus_neighbor_left = NodePath("../Quit")
 focus_neighbor_right = NodePath("../Back")
 focus_next = NodePath("../Back")
@@ -177,7 +239,9 @@ text = "Try again!"
 [node name="Back" type="Button" parent="Camera2D/Control/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer/PanelContainer3/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
+offset_left = 204.0
+offset_right = 404.0
+offset_bottom = 55.0
 focus_neighbor_left = NodePath("../Retry")
 focus_neighbor_right = NodePath("../Quit")
 focus_next = NodePath("../Quit")
@@ -188,7 +252,9 @@ text = "Back"
 [node name="Quit" type="Button" parent="Camera2D/Control/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer/PanelContainer3/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
+offset_left = 408.0
+offset_right = 608.0
+offset_bottom = 55.0
 focus_neighbor_left = NodePath("../Back")
 focus_neighbor_right = NodePath("../Retry")
 focus_next = NodePath("../Retry")

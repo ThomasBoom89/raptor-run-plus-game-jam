@@ -4,7 +4,7 @@ using RaptorRunPlus.scene.ui.gameover.highscore_board;
 
 namespace RaptorRunPlus.scene.ui.gameover;
 
-public partial class HighscoreBoard : PanelContainer
+public partial class HighscoreBoard : MarginContainer
 {
     private Highscore _highscore;
 

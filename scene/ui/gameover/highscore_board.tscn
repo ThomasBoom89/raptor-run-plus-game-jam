@@ -1,58 +1,52 @@
 [gd_scene load_steps=3 format=3 uid="uid://bl2ix1y1dtaxy"]
 
-[ext_resource type="StyleBox" uid="uid://iijyan7mtiun" path="res://scene/ui/gameover/panel_container.tres" id="1_6ujvt"]
 [ext_resource type="Script" path="res://scene/ui/gameover/HighscoreBoard.cs" id="1_hpowy"]
+[ext_resource type="Texture2D" uid="uid://bpbkn4qtuamb5" path="res://assets/sprites/highscore_board/highscore.png" id="2_olbq4"]
 
-[node name="HighscoreBoard" type="PanelContainer"]
-theme_override_styles/panel = ExtResource("1_6ujvt")
+[node name="HighscoreBoard" type="MarginContainer"]
+custom_minimum_size = Vector2(780, 760)
 script = ExtResource("1_hpowy")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_olbq4")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 768.0
-offset_bottom = 158.0
+layout_mode = 2
 
 [node name="Headline" type="Label" parent="VBoxContainer"]
-offset_right = 748.0
-offset_bottom = 72.0
-theme_override_colors/font_color = Color(0.231373, 0.231373, 0.231373, 1)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.164706, 0.164706, 0.164706, 1)
 theme_override_font_sizes/font_size = 50
 text = "Highscore"
 horizontal_alignment = 1
 
 [node name="Head" type="HBoxContainer" parent="VBoxContainer"]
-offset_top = 76.0
-offset_right = 748.0
-offset_bottom = 134.0
+layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="RankHead" type="Label" parent="VBoxContainer/Head"]
 custom_minimum_size = Vector2(140, 0)
-offset_right = 140.0
-offset_bottom = 58.0
-theme_override_colors/font_color = Color(0.231373, 0.231373, 0.231373, 1)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.164706, 0.164706, 0.164706, 1)
 theme_override_font_sizes/font_size = 40
 text = "Rank"
 
 [node name="NameHead" type="Label" parent="VBoxContainer/Head"]
-custom_minimum_size = Vector2(400, 0)
-offset_left = 144.0
-offset_right = 544.0
-offset_bottom = 58.0
-theme_override_colors/font_color = Color(0.231373, 0.231373, 0.231373, 1)
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.164706, 0.164706, 0.164706, 1)
 theme_override_font_sizes/font_size = 40
 text = "Name"
 
 [node name="ScoreHead" type="Label" parent="VBoxContainer/Head"]
 custom_minimum_size = Vector2(200, 0)
-offset_left = 548.0
-offset_right = 748.0
-offset_bottom = 58.0
-theme_override_colors/font_color = Color(0.231373, 0.231373, 0.231373, 1)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.164706, 0.164706, 0.164706, 1)
 theme_override_font_sizes/font_size = 40
 text = "Score"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
-offset_top = 138.0
-offset_right = 748.0
-offset_bottom = 138.0
+layout_mode = 2
+size_flags_horizontal = 4
