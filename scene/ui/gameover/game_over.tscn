@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bwmrj5d505q5p"]
+[gd_scene load_steps=8 format=3 uid="uid://bwmrj5d505q5p"]
 
 [ext_resource type="Script" path="res://scene/camera/CurrentFix.cs" id="1_ffhiw"]
 [ext_resource type="Script" path="res://scene/ui/gameover/GameOver.cs" id="1_nafxg"]
 [ext_resource type="Texture2D" uid="uid://b7txcag4lmx88" path="res://assets/sprites/Background/background_static.png" id="2_6g01c"]
 [ext_resource type="PackedScene" uid="uid://bl2ix1y1dtaxy" path="res://scene/ui/gameover/highscore_board.tscn" id="3_g017y"]
 [ext_resource type="Texture2D" uid="uid://bdsmj4cyxcfbq" path="res://assets/sprites/side_board/buttons/01.png" id="5_2d85a"]
+[ext_resource type="Texture2D" uid="uid://c7yyhap1dxjy4" path="res://assets/sprites/side_board/score/score.png" id="5_i75fe"]
 [ext_resource type="Texture2D" uid="uid://bq14wxgd41s2r" path="res://assets/sprites/side_board/submit/01.png" id="6_cd4t7"]
 
 [node name="GameOver" type="Node2D"]
@@ -95,7 +96,7 @@ offset_bottom = 116.0
 [node name="TextureRect" type="TextureRect" parent="Camera2D/Control/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer"]
 offset_right = 780.0
 offset_bottom = 116.0
-texture = ExtResource("5_2d85a")
+texture = ExtResource("5_i75fe")
 
 [node name="YourScore" type="Label" parent="Camera2D/Control/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer"]
 unique_name_in_owner = true

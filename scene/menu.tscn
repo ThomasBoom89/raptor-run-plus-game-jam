@@ -26,7 +26,6 @@ offset_right = 960.0
 offset_bottom = 540.0
 
 [node name="MarginContainer" type="MarginContainer" parent="Camera2D/UI"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -38,10 +37,14 @@ theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/UI/MarginContainer"]
-layout_mode = 2
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 1900.0
+offset_bottom = 1060.0
 
 [node name="Label" type="Label" parent="Camera2D/UI/MarginContainer/VBoxContainer"]
-layout_mode = 2
+offset_right = 1880.0
+offset_bottom = 178.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.690196)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 5
@@ -53,19 +56,26 @@ text = "Raptor Run Plus"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Camera2D/UI/MarginContainer/VBoxContainer"]
-layout_mode = 2
+offset_top = 182.0
+offset_right = 1880.0
+offset_bottom = 942.0
 
 [node name="MarginContainer" type="MarginContainer" parent="Camera2D/UI/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
+offset_right = 950.0
+offset_bottom = 760.0
 size_flags_horizontal = 3
 theme_override_constants/margin_top = 218
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/UI/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer"]
-layout_mode = 2
+offset_top = 218.0
+offset_right = 950.0
+offset_bottom = 760.0
 script = ExtResource("2_t2x4y")
 
 [node name="StartButton" type="Button" parent="Camera2D/UI/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
+offset_left = 254.0
+offset_right = 696.0
+offset_bottom = 118.0
 size_flags_horizontal = 4
 focus_neighbor_bottom = NodePath("../ExitButton")
 focus_next = NodePath("../ExitButton")
@@ -77,7 +87,10 @@ text = "Start Game"
 
 [node name="ExitButton" type="Button" parent="Camera2D/UI/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(442, 0)
-layout_mode = 2
+offset_left = 254.0
+offset_top = 122.0
+offset_right = 696.0
+offset_bottom = 240.0
 size_flags_horizontal = 4
 focus_neighbor_top = NodePath("../StartButton")
 focus_next = NodePath("../StartButton")
@@ -88,9 +101,13 @@ theme_override_font_sizes/font_size = 80
 text = "Exit"
 
 [node name="MarginContainer2" type="MarginContainer" parent="Camera2D/UI/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
+offset_left = 954.0
+offset_right = 1880.0
+offset_bottom = 760.0
 theme_override_constants/margin_left = 73
 theme_override_constants/margin_right = 73
 
 [node name="HighscoreBoard" parent="Camera2D/UI/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2" instance=ExtResource("4_glkfb")]
-layout_mode = 2
+offset_left = 73.0
+offset_right = 853.0
+offset_bottom = 760.0
