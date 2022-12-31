@@ -63,6 +63,8 @@ focus_neighbor_top = NodePath("../QuitButton")
 focus_neighbor_bottom = NodePath("../BackToMenuButton")
 focus_next = NodePath("../BackToMenuButton")
 focus_previous = NodePath("../QuitButton")
+theme_override_colors/font_hover_color = Color(0.32549, 0.701961, 0.352941, 1)
+theme_override_colors/font_focus_color = Color(0.32549, 0.701961, 0.352941, 1)
 theme_override_font_sizes/font_size = 64
 text = "Resume"
 
@@ -73,6 +75,8 @@ focus_neighbor_top = NodePath("../ResumeButton")
 focus_neighbor_bottom = NodePath("../QuitButton")
 focus_next = NodePath("../QuitButton")
 focus_previous = NodePath("../ResumeButton")
+theme_override_colors/font_hover_color = Color(0.32549, 0.701961, 0.352941, 1)
+theme_override_colors/font_focus_color = Color(0.32549, 0.701961, 0.352941, 1)
 theme_override_font_sizes/font_size = 64
 text = "Back to menu"
 
@@ -84,5 +88,7 @@ focus_neighbor_top = NodePath("../BackToMenuButton")
 focus_neighbor_bottom = NodePath("../ResumeButton")
 focus_next = NodePath("../ResumeButton")
 focus_previous = NodePath("../BackToMenuButton")
+theme_override_colors/font_hover_color = Color(0.32549, 0.701961, 0.352941, 1)
+theme_override_colors/font_focus_color = Color(0.32549, 0.701961, 0.352941, 1)
 theme_override_font_sizes/font_size = 64
 text = "Quit"

@@ -14,7 +14,6 @@ public partial class Menu : VBoxContainer
 
     public override void _Ready()
     {
-        GD.Print("ready");
         _game = GetNode<Game>("/root/World");
         _resume = GetNode<Button>("ResumeButton");
         _backToMenu = GetNode<Button>("BackToMenuButton");
@@ -39,7 +38,6 @@ public partial class Menu : VBoxContainer
 
     private void OnResumePressed()
     {
-        GD.Print("resume");
         _game.ResumeGame();
     }
 }
