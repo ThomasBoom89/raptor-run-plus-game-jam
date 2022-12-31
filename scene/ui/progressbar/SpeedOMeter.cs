@@ -19,11 +19,9 @@ public partial class SpeedOMeter : ProgressBar
     {
         double red = RangeLerp();
         double green = 1 - RangeLerp();
-        // GD.Print(red, green, "MinValue: ", MinValue, "MaxValue: ", MaxValue, "Value: ", Value);
         SelfModulate = new Color((float)red, (float)green, 0, 1);
     }
 
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
         if (_game.WorldSpeed != Value)
@@ -35,8 +33,6 @@ public partial class SpeedOMeter : ProgressBar
 
     private double RangeLerp()
     {
-        // 300 -> 0
-        // 900 -> 1
         return (Value - MinValue) * (1 / (MaxValue - MinValue));
     }
 }

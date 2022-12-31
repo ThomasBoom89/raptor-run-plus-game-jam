@@ -103,7 +103,6 @@ public class Highscore
     {
         ConfigFile config = new ConfigFile();
 
-        // Error err = config.Load(UserScoresCfgPath);
         Error err = config.LoadEncryptedPass(UserScoresCfgPath, Supersecretpassword);
 
         if (err != Error.Ok)
@@ -143,7 +142,6 @@ public class Highscore
 
     private static void _saveConfigFile(ConfigFile config)
     {
-        // config.Save(UserScoresCfgPath);
         config.SaveEncryptedPass(UserScoresCfgPath, Supersecretpassword);
     }
 }
