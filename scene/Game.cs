@@ -160,7 +160,7 @@ public partial class Game : Node2D
 
         if (_lastPlatformPosition == Vector2.Zero)
         {
-            platform.Position = new Vector2(500, 0);
+            platform.Position = new Vector2(600, 100);
         }
         else
         {
